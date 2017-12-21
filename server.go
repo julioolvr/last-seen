@@ -56,8 +56,9 @@ func createHandler(apiURL string) func(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	err := godotenv.Load()
+
 	if err != nil {
-		log.Fatalln("Error loading .env file")
+		log.Println("Error loading .env file")
 	}
 
 	apiURL := fmt.Sprintf("https://api.foursquare.com/v2/users/self/checkins?oauth_token=%s&v=20171220&limit=1&sort=newestfirst", os.Getenv("OAUTH_TOKEN"))
